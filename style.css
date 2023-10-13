@@ -327,13 +327,13 @@ header {
     color: white;
     font-size: 15px;
     padding: 8px;
-    border-radius: 100px;
+    border-radius: 80px;
     background-color: rgb(19, 46, 82);
 }
 
 .description {
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 15px;
+    font-size: 13px;
 }
 
 .github {
@@ -342,7 +342,7 @@ header {
     padding: 8px;
     color: white;
     background-color: rgb(19, 46, 82);
-    border-radius: 100px;
+    border-radius: 80px;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -350,7 +350,7 @@ header {
 .github-url {
     color: white;
     text-decoration: none;
-    border-radius: 100px;
+    border-radius: 80px;
 }
 
 .github:hover {
