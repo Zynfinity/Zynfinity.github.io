@@ -2,125 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="refresh" content="0; url=https://zynfinity.my.id">
+    <!-- <meta http-equiv="refresh" content="8; url=https://zynfinity.my.id"> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="./src/favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="./src/favicon/favicon.ico" type="image/x-icon">
     <title>Fajar Ihsana Profile</title>
+    <style>
+        body {
+            font-family: 'Poppins';
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #1D1B1C;
+            padding: 4px;
+        }
+
+        h1,
+        h2 {
+            color: white;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            h1 {
+                font-size: 20px;
+            }
+            h2{
+                font-size: 35px;
+            }
+        }
+
+        @media only screen and (max-width: 780px) {
+            h1 {
+                font-size: 15px;
+            }
+            h2{
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav class="wrapper">
-            <div class="brand animate__animated animate__pulse animate__infinite infinite">
-                <div class="animate__animated animate__bounceInLeft">&copyZYNFINITY</div>
-            </div>
-            <ul class="navigation animate__animated animate__bounceInRight" id="navigation">
-                <li><a href="#home" class="menu active">HOME</a></li>
-                <li><a href="#about" class="menu">ABOUT</a></li>
-                <li><a href="#project" class="menu">PROJECT</a></li>
-                <li><a href="#contact" class="menu">CONTACT</a></li>
-                <li>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </li>
-            </ul>
-            <label class="switch-responsive">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </nav>
-    </header>
-    <div class="container">
-        <section class="home" id="home">
-            <div class="home-container">
-                <p class="title animate__animated animate__bounceInLeft">Hello, Im Fajar Ihsana</p>
-                <p class="description animate__animated animate__bounceInLeft animate__delay-1s">still learning
-                    programming languages</p>
-                <div>
-                    <img title="Tekan untuk mendengar ara ara: " src="./src/image/male.webp" alt=""
-                        class="img-home animate__animated animate__bounceInRight" onclick="playAudio()">
-                </div>
-            </div>
-        </section>
-        <section class="about" id="about">
-            <h2 class="section-title">About</h2>
-            <div class="about-container">
-                <div>
-                    <img src="./src/image/profile.webp" class="img-profile" alt="profile">
-                </div>
-                <div>
-                    <p class="about-title">im fajar Ihsana</p>
-                    <p class="about-desc">Programmer Spesialis Copy & Paste</p>
-                    <p class="about-text">Halo semuanya nama saya adalah Fajar Ihsana, Saya seorang Mahasiswa
-                        Informatika yang masih mempelajari bahasa pemrograman</p>
-                    <div class="social">
-                        <a href="https://wa.me/6289506883380" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-whatsapp'></i></a>
-                        <a href="https://github.com/zynfinity" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-github'></i></a>
-                        <a href="https://www.instagram.com/ihsanafajar/" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-instagram'></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="about" id="about">
-            <h2 class="section-title">Support System</h2>
-            <div class="about-container">
-                <div>
-                    <img src="./src/image/female.webp" class="img-profile" alt="profile">
-                </div>
-                <div>
-                    <p class="about-title">Dini Setia Wati</p>
-                    <p class="about-desc">Mahasiswi Semester 3 UNJ Jurusan Prancis</p>
-                    <p class="about-text">Ada dehh</p>
-                    <div class="social">
-                        <a href="https://wa.me/6289506883380" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-whatsapp'></i></a>
-                        <a href="https://github.com/zynfinity" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-github'></i></a>
-                        <a href="https://www.instagram.com/ihsanafajar/" target="_blank" class="about__social-icon"><i
-                                class='bx bxl-instagram'></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="project" id="project" style="display:none;">
-            <h2 class="section-title">Project</h2>
-            <div class="project-container">
-                <div class="project-wrapper"></div>
-            </div>
-        </section>
-        <section class="contact" id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-container">
-                <h3 class="contact-type"><span>EMAIL</span></h3>
-                <span class="contact-text">fajarihsana15@gmail.com</span>
-                <h3 class="contact-type"><span>PHONE</span></h3>
-                <span class="contact-text">0895-0688-3380</span>
-                <h3 class="contact-type"><span>ADDRESS</span></h3>
-                <span class="contact-text">Tasikmalaya City, West Java, Indonesia</span>
-            </div>
-        </section>
-        <div class="footer">
-            <p>&copy Fajar Ihsana Website 2023!</p>
-        </div>
-        <audio id="myAudio">
-            <source src="./src/audio/ara.mp3" type="audio/mpeg">
-            Browsermu tidak mendukung tag audio, upgrade donk!
-        </audio>
-        <script src="https://code.jquery.com/jquery-3.6.3.js"
-            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous">
-            </script>
-        <script src="./main.js"></script>
+    <h1 id="info">You will be redirected to zynfinity.my.id</h1>
+    <h2 id="timer">5</h2>
+    <script>
+        var count = 5
+        setInterval(function () {
+            count = count - 1;
+            if(count <= 0){
+                document.getElementById('timer').style.display = "none";
+                document.getElementById('info').textContent = "Redirecting ...";
+
+            }else document.getElementById('timer').textContent = count;
+        }, 1000)
+    </script>
 </body>
 
 </html>
