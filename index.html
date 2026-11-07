@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fajar Ihsana — Portofolio Web Developer &amp; IT</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Fajar Ihsana — Portofolio Web Developer &amp; IT">
+  <meta name="description" content="Portofolio resmi Fajar Ihsana, lulusan S1 Teknik Informatika STMIK DCI Tasikmalaya. Berpengalaman dalam pengembangan aplikasi web, administrasi, manajemen data, dan cloud computing.">
+  <meta name="keywords" content="Fajar Ihsana, Portofolio, Web Developer, Teknik Informatika, STMIK DCI, Tasikmalaya, Administrasi, Cloud Computing, Bangkit Academy, Frontend, React, Node.js">
+  <meta name="author" content="Fajar Ihsana">
+  
+  <!-- Search Engine Crawlers & Image Indexing Directives (Blok Indeks Gambar) -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, noimageindex">
+  <meta name="robots" content="noimageindex">
+
+  <!-- Open Graph / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fajar Ihsana — Portofolio Web Developer &amp; IT">
+  <meta property="og:description" content="Portofolio resmi Fajar Ihsana, S1 Teknik Informatika STMIK DCI Tasikmalaya. Menampilkan keahlian, pengalaman Bangkit Academy, sertifikasi BNSP, dan proyek digital.">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="Portofolio Fajar Ihsana">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fajar Ihsana — Portofolio Web Developer &amp; IT">
+  <meta name="twitter:description" content="Portofolio resmi Fajar Ihsana, S1 Teknik Informatika STMIK DCI Tasikmalaya.">
+
+  <!-- Favicon & Theme Color -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="theme-color" content="#08090A">
+
+  <!-- Structured Data (JSON-LD) for Rich Google Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Fajar Ihsana",
+    "jobTitle": "Web Developer & IT Specialist",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "STMIK DCI Tasikmalaya"
+    },
+    "knowsAbout": [
+      "Web Development",
+      "Frontend Development",
+      "Cloud Computing",
+      "IT Administration",
+      "Database Management"
+    ],
+    "sameAs": [
+      "https://github.com/Zynfinity",
+      "https://t.me/ihsanafajar"
+    ]
+  }
+  </script>
+  
+  <!-- Google Fonts: Bebas Neue, Caveat, Inter, Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Animate.css for lightweight CSS animations -->
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader" aria-hidden="true">
+        <div class="preloader-content">
+            <div class="preloader-track">
+                <div class="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="layer-01-portfolio-1440-auto-layout">
+    <!-- Navigation -->
+    <nav class="nav in-hero" id="navbar">
+        <div class="nav-pill">
+            <div class="links-left">
+                <a href="#beranda" class="work">Beranda</a>
+                <a href="#tentang" class="about">Tentang</a>
+            </div>
+            <div class="links-right">
+                <a href="#proyek" class="services">Proyek</a>
+                <a href="#kontak" class="contact">Kontak</a>
+            </div>
+            <button class="menu-btn" id="menuBtn" aria-label="Buka menu navigasi" aria-expanded="false">
+                <span class="bar-16"></span>
+                <span class="bar-16"></span>
+                <span class="bar-10"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-nav-menu" id="mobileMenu">
+            <a href="#beranda" class="mobile-nav-link">Beranda</a>
+            <a href="#tentang" class="mobile-nav-link">Tentang</a>
+            <a href="#pendidikan" class="mobile-nav-link">Pendidikan</a>
+            <a href="#pengalaman" class="mobile-nav-link">Pengalaman</a>
+            <a href="#keahlian" class="mobile-nav-link">Keahlian &amp; Tools</a>
+            <a href="#sertifikasi" class="mobile-nav-link">Sertifikasi</a>
+            <a href="#proyek" class="mobile-nav-link">Proyek</a>
+            <a href="#kontak" class="mobile-nav-link">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero" id="beranda">
+        <div class="hero-card">
+            <div class="hero-bg-text">
+                <h1 class="line1">PORTOFOLIO</h1>
+            </div>
+
+            <div class="sunburst">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 0L30.492 17.081L40.149 2.773L34.983 19.243L49.891 10.542L38.091 23.141L55.298 21.769L39.2 28L55.298 34.231L38.091 32.859L49.891 45.458L34.983 36.757L40.149 53.227L30.492 38.919L28 56L25.508 38.919L15.851 53.227L21.017 36.757L6.109 45.458L17.909 32.859L0.702 34.231L16.8 28L0.702 21.769L17.909 23.141L6.109 10.542L21.017 19.243L15.851 2.773L25.508 17.081Z" fill="#8BE23C"/>
+                </svg>
+            </div>
+            <div class="sparkle-2">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 0L17.333 12.667L30 15L17.333 17.333L15 30L12.667 17.333L0 15L12.667 12.667Z" fill="#8BE23C"/>
+                </svg>
+            </div>
+
+            <div class="hero-middle">
+                <div class="left-copy">
+                    <p class="hello-tag">Hello, I'm</p>
+                    <h2 class="hero-name">FAJAR IHSANA</h2>
+                    <div class="doodle">
+                        <div class="tick"></div>
+                        <div class="tick-2"></div>
+                        <div class="tick-3"></div>
+                    </div>
+                    <p class="copy">Lulusan S1 Teknik Informatika dengan kemampuan di bidang teknologi digital, pengolahan data, dan administrasi. Terbuka untuk berbagai peluang kerja dan siap berkontribusi.</p>
+                    <a href="#proyek" class="ghost-btn" style="text-decoration: none;">
+                        <p class="ghost-label">Lihat proyek</p>
+                        <span class="arr-icon">↗</span>
+                    </a>
+                </div>
+
+                <div class="portrait-stage">
+                    <div class="backdrop-circle"></div>
+                    <img src="assets/images/hero-photo.png" alt="Fajar Ihsana" class="hero-photo-img">
+                    <div class="squiggle">
+                        <svg width="52" height="74" viewBox="0 0 68 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path transform="matrix(1 0 0 1 8 8)" d="M35.465 74C-5.911 61.965 -11.083 13.827 19.949 1.793C45.809 -7.233 61.325 19.845 45.809 37.896C32.879 52.94 14.777 40.905 22.535 25.862" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="cta-pill">
+                        <a href="#kontak" class="primary" style="text-decoration: none;">
+                            <p class="t">Mulai proyek</p>
+                            <p class="a">↗</p>
+                        </a>
+                        <a href="#kontak" class="secondary" style="text-decoration: none;">
+                            <p class="t-2">Ayo kolaborasi</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rating">
+                    <p class="stars">S1 INFORMATIKA</p>
+                    <p class="years">3.66</p>
+                    <p class="experience">IPK / 4.00</p>
+                    <p class="hero-subtag">Turning ideas into powerful digital experiences.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-2" id="tentang">
+        <div class="about-top">
+            <div class="about-heading">
+                <div class="head-row">
+                    <p class="t2">Profil</p>
+                    <div class="products-hl">
+                        <p class="t-3">Singkat</p>
+                    </div>
+                </div>
+                <p class="note">Mengenal lebih jauh tentang saya dan perjalanan di bidang teknologi.</p>
+            </div>
+        </div>
+
+        <div class="about-main">
+            <div class="about-photo-wrapper">
+                <div class="about-photo-card">
+                    <img src="assets/images/profile-photo.png" alt="Fajar Ihsana — Web Developer & IT" class="about-photo-img" />
+                </div>
+            </div>
+
+            <div class="about-copy">
+                <p class="body">Saya Fajar Ihsana, lulusan S1 Teknik Informatika dari STMIK DCI Tasikmalaya. Memiliki pengalaman dalam pengembangan aplikasi web, pengelolaan basis data, serta terbiasa menggunakan komputer untuk mengolah dokumen dan data. Saya juga memiliki kemampuan beradaptasi, ketelitian dalam menyelesaikan pekerjaan, dan kemauan untuk mempelajari hal baru. Saat ini saya terbuka terhadap peluang kerja di bidang administrasi, pengelolaan marketplace, data entry, operasional, maupun teknologi informasi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="education" id="pendidikan">
+        <div class="header">
+            <div class="title">
+                <p class="label">PENDIDIKAN</p>
+                <p class="h2">Pendidikan</p>
+            </div>
+            <p class="note-2">Riwayat pendidikan dan pengalaman akademik saya.</p>
+        </div>
+        <div class="education-cards"></div>
+        <div class="timeline">
+            <div class="spine"></div>
+            <div class="spine-2"></div>
+            <div class="spine-3"></div>
+            <div class="spine-4"></div>
+            <div class="spine-5"></div>
+            <div class="spine-6"></div>
+            <div class="spine-7"></div>
+            <div class="spine-8"></div>
+            <div class="spine-9"></div>
+            <div class="spine-10"></div>
+            <div class="spine-11"></div>
+            <div class="spine-12"></div>
+            <div class="spine-13"></div>
+            <div class="spine-14"></div>
+            <div class="spine-15"></div>
+            <div class="spine-16"></div>
+            <div class="spine-17"></div>
+            <div class="node-1">
+                <p class="n">1</p>
+            </div>
+            <div class="connector"></div>
+            <div class="connector-2"></div>
+            <div class="connector-3"></div>
+            <div class="connector-4"></div>
+            <div class="connector-5"></div>
+            <div class="connector-6"></div>
+            <div class="block-s1">
+                <div class="year-row">
+                    <p class="years-2">2022 — 2026</p>
+                    <div class="level">
+                        <p class="t-4">S1</p>
+                    </div>
+                </div>
+                <div class="card-s1">
+                    <div class="foto-s1">
+                        <div class="image"></div>
+                    </div>
+                    <div class="body-3">
+                        <p class="school">STMIK DCI Tasikmalaya</p>
+                        <p class="major">S1 Teknik Informatika · IPK 3.66/4.00</p>
+                        <p class="desc">Fokus pada rekayasa perangkat lunak, pengembangan aplikasi web, dan basis data.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="node-2">
+                <p class="n-2">2</p>
+            </div>
+            <div class="connector-7"></div>
+            <div class="connector-8"></div>
+            <div class="connector-9"></div>
+            <div class="connector-10"></div>
+            <div class="connector-11"></div>
+            <div class="connector-12"></div>
+            <div class="block-smk">
+                <div class="year-row-3">
+                    <p class="years-smk">2019 — 2022</p>
+                    <div class="level-3">
+                        <p class="t-smk">SMK</p>
+                    </div>
+                </div>
+                <div class="card-smk">
+                    <div class="foto-smk">
+                        <div class="image-2"></div>
+                    </div>
+                    <div class="body-smk">
+                        <p class="school-3">SMK MUHAMMADIYAH Tasikmalaya</p>
+                        <p class="major-3">Teknik Komputer Jaringan</p>
+                        <p class="desc-smk">Kompetensi keahlian perakitan hardware, administrasi server, instalasi jaringan LAN/WAN, dan konfigurasi routing MikroTik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience / Professional Training Section -->
+    <div class="experience-section" id="pengalaman">
+        <div class="header">
+            <div class="title">
+                <p class="label">PENGALAMAN &amp; PELATIHAN</p>
+                <div class="head-row">
+                    <p class="h2">Pengalaman</p>
+                    <div class="products-hl">
+                        <p class="t-3">Program</p>
+                    </div>
+                </div>
+            </div>
+            <p class="note-2">Program studi independen, pelatihan intensif, dan proyek kolaboratif yang pernah saya ikuti.</p>
+        </div>
+
+        <div class="experience-list">
+            <div class="exp-card">
+                <div class="exp-photo"></div>
+                <div class="exp-content">
+                    <div class="exp-badge-row">
+                        <span class="exp-year">2024</span>
+                        <span class="exp-tag">MSIB BATCH 7 · STUDI INDEPENDEN BERSERTIFIKAT</span>
+                    </div>
+                    <h3 class="exp-title">Bangkit Academy led by Google, GoTo, &amp; Traveloka</h3>
+                    <p class="exp-role">Cloud Computing Cohort · Studi Independen</p>
+                    <p class="exp-desc">
+                        Mengikuti program pengembangan kompetensi teknologi berskala nasional yang diinisiasi oleh Google. Mempelajari Google Cloud Platform (GCP), arsitektur cloud backend Node.js, pembuatan RESTful API, dan deployment aplikasi.
+                    </p>
+                    <div class="exp-highlights">
+                        <div class="exp-highlight-item">
+                            <span class="exp-hl-dot"></span>
+                            <p><strong>Capstone Project (SmartBite):</strong> Berkolaborasi dalam tim lintas disiplin 7 orang untuk merancang backend, autentikasi pengguna, serta integrasi model machine learning pada cloud server.</p>
+                        </div>
+                        <div class="exp-highlight-item">
+                            <span class="exp-hl-dot"></span>
+                            <p><strong>Keterampilan:</strong> Google Cloud Platform (GCP), Node.js, REST API, Cloud Run, Git/GitHub, Team Collaboration, Problem Solving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills" id="keahlian">
+        <div class="skills-card">
+            <div class="header-2">
+                <div class="title-2">
+                    <p class="label-2">KEAHLIAN</p>
+                    <p class="h2-2">Keahlian &amp; Tools</p>
+                </div>
+                <p class="note-3">Teknologi dan tools yang saya kuasai.</p>
+            </div>
+            <div class="grid">
+                <div class="row-0">
+                    <div class="group-soft-skill">
+                        <div class="title-3">
+                            <p class="n-3">01</p>
+                            <p class="t-6">Frontend</p>
+                        </div>
+                        <div class="chips">
+                            <div class="chip"><p class="t-7">React.js</p></div>
+                            <div class="chip-2"><p class="t-8">JavaScript</p></div>
+                            <div class="chip-3"><p class="t-9">HTML</p></div>
+                            <div class="chip-4"><p class="t-10">CSS</p></div>
+                            <div class="chip-5"><p class="t-11">Tailwind CSS</p></div>
+                            <div class="chip-6"><p class="t-12">Flutter</p></div>
+                        </div>
+                    </div>
+                    <div class="group-hard-skill">
+                        <div class="title-4">
+                            <p class="n-4">02</p>
+                            <p class="t-13">Backend</p>
+                        </div>
+                        <div class="chips-2">
+                            <div class="chip-7"><p class="t-14">Node.js</p></div>
+                            <div class="chip-10"><p class="t-17">Python</p></div>
+                            <div class="chip-11"><p class="t-18">PHP</p></div>
+                            <div class="chip-12"><p class="t-19">MySQL</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-1">
+                    <div class="group-software">
+                        <div class="title-5">
+                            <p class="n-5">03</p>
+                            <p class="t-20">Ms. Office</p>
+                        </div>
+                        <div class="chips-3">
+                            <div class="chip-13"><p class="t-21">Microsoft Word</p></div>
+                            <div class="chip-14"><p class="t-22">Microsoft Excel</p></div>
+                            <div class="chip-15"><p class="t-23">Microsoft PowerPoint</p></div>
+                            <div class="chip-17"><p class="t-25">Google Docs &amp; Sheets</p></div>
+                            <div class="chip-18"><p class="t-26">Spreadsheet</p></div>
+                        </div>
+                    </div>
+                    <div class="group-bahasa">
+                        <div class="title-6">
+                            <p class="n-6">04</p>
+                            <p class="t-27">Bahasa</p>
+                        </div>
+                        <div class="chips-4">
+                            <div class="chip-19"><p class="t-28">Indonesia — Native</p></div>
+                            <div class="chip-20"><p class="t-29">Inggris — Professional</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Organization / Certifications Section -->
+    <div class="organization" id="sertifikasi">
+        <div class="header-3">
+            <div class="title-7">
+                <p class="label-3">SERTIFIKASI &amp; PENCAPAIAN</p>
+                <p class="h2-3">Sertifikasi &amp; Pencapaian</p>
+            </div>
+            <p class="note-4">Sertifikasi kompetensi resmi dan prestasi kompetisi yang telah saya raih.</p>
+        </div>
+
+        <div class="cert-groups">
+            <!-- Sub-section 1: Sertifikasi -->
+            <div class="cert-group">
+                <div class="cert-subhead">
+                    <h3 class="cert-subhead-title">Sertifikasi</h3>
+                </div>
+                <div class="cert-cards-row">
+                    <div class="org-ketua-himpunan">
+                        <p class="years-4">2026</p>
+                        <p class="role">Junior Programmer</p>
+                        <p class="org">BNSP · Sertifikasi Kompetensi</p>
+                        <p class="desc-3">Sertifikasi kompetensi nasional di bidang pemrograman — menulis, menguji, dan merawat kode.</p>
+                    </div>
+                    <div class="org-volunteer-lead">
+                        <p class="years-5">2026</p>
+                        <p class="role-2">Junior Network Administrator</p>
+                        <p class="org-2">BNSP · Sertifikasi Kompetensi</p>
+                        <p class="desc-4">Sertifikasi jaringan: konfigurasi, keamanan, dan troubleshooting infrastruktur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-section 2: Pencapaian -->
+            <div class="cert-group">
+                <div class="cert-subhead">
+                    <h3 class="cert-subhead-title">Pencapaian</h3>
+                </div>
+                <div class="cert-cards-row">
+                    <div class="org-mentor-ui-ux">
+                        <p class="years-6">2024</p>
+                        <p class="role-3">Juara 1 WordPress</p>
+                        <p class="org-3">Case Competition · UNESA</p>
+                        <p class="desc-5">Membangun situs WordPress untuk studi kasus nyata dan menang di kompetisi UNESA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Section -->
+    <div class="project" id="proyek">
+        <div class="work-header">
+            <div class="work-title">
+                <p class="eyebrow">PROYEK</p>
+                <div class="head-row-2">
+                    <p class="h1-2">Proyek</p>
+                    <div class="hl">
+                        <p class="t-30">Pilihan</p>
+                    </div>
+                </div>
+                <p class="note-5">Beberapa proyek yang pernah saya kerjakan.</p>
+            </div>
+            <a href="https://github.com/Zynfinity" target="_blank" rel="noopener noreferrer" class="view-all" style="text-decoration:none;">
+                <p class="t-31">Lihat GitHub</p>
+                <p class="a-2">↗</p>
+            </a>
+        </div>
+        <div class="work-grid">
+            <a href="https://github.com/Zynfinity/photobox" target="_blank" rel="noopener noreferrer" class="card-skylearn" style="text-decoration:none;">
+                <div class="thumb">
+                    <img src="assets/images/project-1.png" alt="FMPhoto - Photobox" class="project-img">
+                </div>
+                <div class="meta-2">
+                    <div class="top">
+                        <p class="name">FMPhoto (Photobox)</p>
+                        <p class="year">2026</p>
+                    </div>
+                    <div class="bot">
+                        <p class="role-4">Aplikasi Web &amp; Manajemen Photobox</p>
+                        <p class="arr">↗</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://github.com/AnamSadat/SmartBite" target="_blank" rel="noopener noreferrer" class="card-lintas-pay" style="text-decoration:none;">
+                <div class="thumb-2">
+                    <img src="assets/images/project-2.png" alt="SmartBite" class="project-img">
+                </div>
+                <div class="meta-3">
+                    <div class="top-2">
+                        <p class="name-2">SmartBite</p>
+                        <p class="year-2">2024</p>
+                    </div>
+                    <div class="bot-2">
+                        <p class="role-5">Deteksi Nutrisi &amp; Kalori Makanan</p>
+                        <p class="arr-2">↗</p>
+                    </div>
+                </div>
+            </a>
+            <a href="https://github.com/Zynfinity/SIM-FORMAT" target="_blank" rel="noopener noreferrer" class="card-ruang-baca" style="text-decoration:none;">
+                <div class="thumb-3">
+                    <img src="assets/images/project-3.png" alt="SIM-FORMAT" class="project-img">
+                </div>
+                <div class="meta-4">
+                    <div class="top-3">
+                        <p class="name-3">SIM-FORMAT</p>
+                        <p class="year-3">2026</p>
+                    </div>
+                    <div class="bot-3">
+                        <p class="role-6">Sistem Informasi Manajemen UKM</p>
+                        <p class="arr-3">↗</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-2" id="kontak">
+        <div class="contact-card">
+            <div class="contact-copy">
+                <p class="eyebrow-2">AYO BEKERJA SAMA</p>
+                <div class="head-row-3">
+                    <p class="h1-3">Hubungi</p>
+                    <div class="hl-2">
+                        <p class="t-32">Saya</p>
+                    </div>
+                </div>
+                <p class="note-6">Terbuka untuk peluang kerja, proyek, dan kolaborasi.</p>
+                <p class="body-5">Silakan hubungi saya melalui salah satu kontak berikut — saya akan merespons secepat mungkin.</p>
+                
+                <div class="contact-channels">
+                    <!-- Email -->
+                    <a href="mailto:fajarihsana15@gmail.com" class="channel-card">
+                        <div class="channel-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8BE23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </div>
+                        <div class="channel-meta">
+                            <span class="channel-title">Email</span>
+                            <span class="channel-desc">fajarihsana15@gmail.com</span>
+                        </div>
+                        <span class="channel-arrow">↗</span>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/6289506883380" target="_blank" rel="noopener noreferrer" class="channel-card">
+                        <div class="channel-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8BE23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <div class="channel-meta">
+                            <span class="channel-title">WhatsApp</span>
+                            <span class="channel-desc">0895-0688-3380</span>
+                        </div>
+                        <span class="channel-arrow">↗</span>
+                    </a>
+
+                    <!-- Telegram -->
+                    <a href="https://t.me/ihsanafajar" target="_blank" rel="noopener noreferrer" class="channel-card">
+                        <div class="channel-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8BE23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.5 2 2 11.5l6.5 2.5 2 6 3.5-3.5 5 4 2.5-18.5z"/>
+                            </svg>
+                        </div>
+                        <div class="channel-meta">
+                            <span class="channel-title">Telegram</span>
+                            <span class="channel-desc">@ihsanafajar</span>
+                        </div>
+                        <span class="channel-arrow">↗</span>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/Zynfinity" target="_blank" rel="noopener noreferrer" class="channel-card">
+                        <div class="channel-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8BE23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                                <path d="M9 18c-4.51 2-5-2-7-2"/>
+                            </svg>
+                        </div>
+                        <div class="channel-meta">
+                            <span class="channel-title">GitHub</span>
+                            <span class="channel-desc">github.com/Zynfinity</span>
+                        </div>
+                        <span class="channel-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-portrait">
+                <img src="assets/images/contact-portrait.jpg" alt="Fajar Ihsana" class="contact-img" />
+                <div class="sp">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 0L18.288 11.712L30 15L18.288 18.288L15 30L11.712 18.288L0 15L11.712 11.712L15 0Z" fill="#8BE23C"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-block">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="mark">
+                        <p class="wm">FAJAR</p>
+                    </div>
+                    <p class="tag">Teknologi digital, administrasi &amp; web development. Tasikmalaya, Indonesia.</p>
+                </div>
+                <div class="col-pages">
+                    <p class="label-4">HALAMAN</p>
+                    <a href="#beranda" class="item-work" style="text-decoration:none;">Beranda</a>
+                    <a href="#tentang" class="item-about" style="text-decoration:none;">Tentang</a>
+                    <a href="#proyek" class="item-services" style="text-decoration:none;">Proyek</a>
+                    <a href="#kontak" class="item-contact" style="text-decoration:none;">Kontak</a>
+                </div>
+                <div class="col-elsewhere">
+                    <p class="label-5">KONTAK</p>
+                    <a href="mailto:fajarihsana15@gmail.com" class="item-read-cv" style="text-decoration:none;">Email</a>
+                    <a href="https://wa.me/6289506883380" target="_blank" rel="noopener noreferrer" class="item-linkedin" style="text-decoration:none;">WhatsApp</a>
+                    <a href="https://t.me/ihsanafajar" target="_blank" rel="noopener noreferrer" class="item-linkedin" style="text-decoration:none;">Telegram</a>
+                    <a href="https://github.com/Zynfinity" target="_blank" rel="noopener noreferrer" class="item-dribbble" style="text-decoration:none;">GitHub</a>
+                </div>
+                <div class="col-notes">
+                    <p class="label-6">JELAJAHI</p>
+                    <a href="#pengalaman" class="item-case-studies" style="text-decoration:none;">Pengalaman</a>
+                    <a href="#sertifikasi" class="item-process" style="text-decoration:none;">Sertifikasi</a>
+                    <a href="#pendidikan" class="item-writing" style="text-decoration:none;">Pendidikan</a>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer-bottom">
+                <p class="copy-2">© 2026 Fajar Ihsana — dibangun di Tasikmalaya</p>
+                <div class="socials">
+                    <a href="mailto:fajarihsana15@gmail.com" class="s-instagram" style="text-decoration:none;">Email</a>
+                    <a href="https://wa.me/6289506883380" target="_blank" rel="noopener noreferrer" class="s-linkedin" style="text-decoration:none;">WhatsApp</a>
+                    <a href="https://t.me/ihsanafajar" target="_blank" rel="noopener noreferrer" class="s-linkedin" style="text-decoration:none;">Telegram</a>
+                    <a href="https://github.com/Zynfinity" target="_blank" rel="noopener noreferrer" class="s-dribbble" style="text-decoration:none;">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="scroll-to-top" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>

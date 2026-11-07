@@ -1,0 +1,21 @@
+# robots.txt for Fajar Ihsana Portfolio
+# Allow web crawlers to index pages for SEO, but prevent all images from being indexed
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: msnbot-media
+Disallow: /
+
+User-agent: Pinterestbot
+Disallow: /
+
+User-agent: *
+Disallow: /assets/images/
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /*.svg$
+Disallow: /*.webp$
+Allow: /
