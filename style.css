@@ -154,18 +154,26 @@ body {
    Animate.css Customizations & Hardware Acceleration
    ======================================================== */
 :root {
-  --animate-duration: 0.65s;
-  --animate-delay: 0.1s;
+  --animate-duration: 0.85s;
+  --animate-delay: 0.15s;
+}
+
+.animate__animated {
+  -webkit-animation-fill-mode: both !important;
+  animation-fill-mode: both !important;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, opacity;
 }
 
 .will-animate {
   opacity: 0;
+  will-change: transform, opacity;
 }
 
-@keyframes fadeInUpSubtle {
+@keyframes fadeInUpCustom {
   from {
     opacity: 0;
-    transform: translate3d(0, 26px, 0);
+    transform: translate3d(0, 48px, 0);
   }
   to {
     opacity: 1;
@@ -173,10 +181,10 @@ body {
   }
 }
 
-@keyframes fadeInDownSubtle {
+@keyframes fadeInDownCustom {
   from {
     opacity: 0;
-    transform: translate3d(0, -22px, 0);
+    transform: translate3d(0, -42px, 0);
   }
   to {
     opacity: 1;
@@ -184,10 +192,10 @@ body {
   }
 }
 
-@keyframes fadeInLeftSubtle {
+@keyframes fadeInLeftCustom {
   from {
     opacity: 0;
-    transform: translate3d(-24px, 0, 0);
+    transform: translate3d(-45px, 0, 0);
   }
   to {
     opacity: 1;
@@ -195,10 +203,10 @@ body {
   }
 }
 
-@keyframes fadeInRightSubtle {
+@keyframes fadeInRightCustom {
   from {
     opacity: 0;
-    transform: translate3d(24px, 0, 0);
+    transform: translate3d(45px, 0, 0);
   }
   to {
     opacity: 1;
@@ -207,19 +215,19 @@ body {
 }
 
 .animate__fadeInUp {
-  animation-name: fadeInUpSubtle !important;
+  animation-name: fadeInUpCustom !important;
 }
 
 .animate__fadeInDown {
-  animation-name: fadeInDownSubtle !important;
+  animation-name: fadeInDownCustom !important;
 }
 
 .animate__fadeInLeft {
-  animation-name: fadeInLeftSubtle !important;
+  animation-name: fadeInLeftCustom !important;
 }
 
 .animate__fadeInRight {
-  animation-name: fadeInRightSubtle !important;
+  animation-name: fadeInRightCustom !important;
 }
 
 .hero, .about-2, .education, .experience-section, .skills, .organization, .project, .contact-2, .footer {

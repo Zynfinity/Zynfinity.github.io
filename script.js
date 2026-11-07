@@ -1,20 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Preloader transition
+  // Preloader & Hero Animation Synchronization
   const preloader = document.getElementById('preloader');
+  let heroAnimationTriggered = false;
+
+  const triggerHeroAnimations = () => {
+    if (heroAnimationTriggered) return;
+    heroAnimationTriggered = true;
+
+    const heroElements = [
+      { selector: '.line1', anim: 'animate__fadeInDown', delay: '0.05s' },
+      { selector: '.sunburst', anim: 'animate__zoomIn', delay: '0.2s' },
+      { selector: '.sparkle-2', anim: 'animate__zoomIn', delay: '0.3s' },
+      { selector: '.left-copy', anim: 'animate__fadeInLeft', delay: '0.12s' },
+      { selector: '.portrait-stage', anim: 'animate__fadeInUp', delay: '0.18s' },
+      { selector: '.rating', anim: 'animate__fadeInRight', delay: '0.22s' }
+    ];
+
+    heroElements.forEach(({ selector, anim, delay }) => {
+      const els = document.querySelectorAll(selector);
+      els.forEach((el) => {
+        el.style.animationDelay = delay;
+        el.classList.add('animate__animated', anim);
+      });
+    });
+  };
+
   if (preloader) {
     const dismissPreloader = () => {
       preloader.classList.add('loaded');
+      // Fire hero animation right as the preloader curtain fades away
+      setTimeout(triggerHeroAnimations, 100);
       setTimeout(() => {
         if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
       }, 550);
     };
 
     if (document.readyState === 'complete') {
-      setTimeout(dismissPreloader, 400);
+      setTimeout(dismissPreloader, 300);
     } else {
-      window.addEventListener('load', () => setTimeout(dismissPreloader, 400));
-      setTimeout(dismissPreloader, 2000);
+      window.addEventListener('load', () => setTimeout(dismissPreloader, 300));
+      setTimeout(dismissPreloader, 1800);
     }
+  } else {
+    triggerHeroAnimations();
   }
 
   // Mobile menu toggle
@@ -98,55 +126,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Animate.css + Native IntersectionObserver (Ultra-Lightweight)
   // ========================================================
 
-  // 1. Hero Entrance Animations
-  const initHeroAnimations = () => {
-    const heroElements = [
-      { selector: '.line1', anim: 'animate__fadeIn', delay: '0s' },
-      { selector: '.sunburst, .sparkle-2', anim: 'animate__fadeIn', delay: '0.15s' },
-      { selector: '.left-copy', anim: 'animate__fadeInUp', delay: '0.1s' },
-      { selector: '.portrait-stage', anim: 'animate__fadeIn', delay: '0.15s' },
-      { selector: '.rating', anim: 'animate__fadeInUp', delay: '0.2s' }
-    ];
-
-    heroElements.forEach(({ selector, anim, delay }) => {
-      const els = document.querySelectorAll(selector);
-      els.forEach((el) => {
-        el.style.animationDelay = delay;
-        el.classList.add('animate__animated', anim);
-        el.addEventListener('animationend', () => {
-          el.classList.remove('animate__animated', anim);
-          el.style.animationDelay = '';
-        }, { once: true });
-      });
-    });
-  };
-
-  if (preloader) {
-    setTimeout(initHeroAnimations, 400);
-  } else {
-    initHeroAnimations();
-  }
-
-  // 2. Scroll Reveal Animations with Native IntersectionObserver
+  // Scroll Reveal Animations with Native IntersectionObserver
   if ('IntersectionObserver' in window) {
-    const scrollRevealGroups = [
+    const scrollRevealSingles = [
       '#tentang .about-top',
       '#tentang .about-photo-wrapper',
       '#tentang .about-copy',
       '#pendidikan .header',
-      '#pendidikan .block-s1',
-      '#pendidikan .block-smk',
       '#pengalaman .header',
       '#pengalaman .exp-card',
       '#keahlian .skills-card',
       '#sertifikasi .header-3',
-      '#sertifikasi .cert-group',
+      '#sertifikasi .cert-subhead',
       '#proyek .work-header',
-      '#proyek .card-skylearn',
-      '#proyek .card-lintas-pay',
-      '#proyek .card-ruang-baca',
       '#kontak .contact-card',
       '.footer .footer-block'
+    ];
+
+    const scrollRevealGroups = [
+      { parent: '#pendidikan .timeline', items: '.block-s1, .block-smk' },
+      { parent: '#sertifikasi .cert-groups', items: '.org-ketua-himpunan, .org-volunteer-lead, .org-mentor-ui-ux' },
+      { parent: '#proyek .work-grid', items: '.card-skylearn, .card-lintas-pay, .card-ruang-baca' }
     ];
 
     const observer = new IntersectionObserver((entries, obs) => {
@@ -155,22 +155,33 @@ document.addEventListener('DOMContentLoaded', () => {
           const target = entry.target;
           target.classList.remove('will-animate');
           target.classList.add('animate__animated', 'animate__fadeInUp');
-          target.addEventListener('animationend', () => {
-            target.classList.remove('animate__animated', 'animate__fadeInUp');
-          }, { once: true });
           obs.unobserve(target);
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
     });
 
-    scrollRevealGroups.forEach((selector) => {
+    // Observe single blocks
+    scrollRevealSingles.forEach((selector) => {
       document.querySelectorAll(selector).forEach((el) => {
         el.classList.add('will-animate');
         observer.observe(el);
       });
+    });
+
+    // Observe group items with cascading stagger delays
+    scrollRevealGroups.forEach(({ parent, items }) => {
+      const container = document.querySelector(parent);
+      if (container) {
+        const els = container.querySelectorAll(items);
+        els.forEach((el, index) => {
+          el.classList.add('will-animate');
+          el.style.animationDelay = `${(index * 0.14).toFixed(2)}s`;
+          observer.observe(el);
+        });
+      }
     });
   }
 });
