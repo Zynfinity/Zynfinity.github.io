@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  user-select: none;
+}
+
+.flying-icon:hover > path {
+  /* fill: #3FA2F6; */
+  stroke: #3FA2F6;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-icon:hover > path {
+  fill: #3FA2F6;
+  transition: all 0.3s ease-in-out;
+}
+
+.react {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar */
+}
+
+/* Track scrollbar */
+::-webkit-scrollbar-track {
+  background: #161B21; 
+}
+
+/* Handle scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #3FA2F6; 
+  border-radius: 6px; /* Membuat handle lebih bulat */
+}
+
+/* Handle scrollbar saat di-hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.button {
+  @apply overflow-hidden rounded-tr-[10px] rounded-tl-[20px] rounded-bl-[10px] rounded-br-[20px];
+}
+.glow-button:hover {
+  background: rgb(61, 106, 255);
+  box-shadow: 0 0 15px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.glow-button-instagram:hover{
+  background: #F2748B;
+  box-shadow: 0 0 15px 5px #F2748B;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.glow-button-github:hover{
+  background: rgb(107 114 128);
+  box-shadow: 0 0 15px 5px rgb(107 114 128);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.glow-button-email:hover{
+  background: #F84437;
+  box-shadow: 0 0 15px 5px #F84437;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.glow-button-discord:hover{
+  background: #5865F2;
+  box-shadow: 0 0 15px 5px #5865F2;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.glow-button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+.glow-button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+.button:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+.button::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.glow-button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+.glow-button {
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.typewriter h2 {
+  border-right: 2px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 24px;
+}
+.project:hover {
+  animation: rotate624 0.7s ease-in-out both;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes rotate624 {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
