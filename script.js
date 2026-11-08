@@ -1,24 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Preloader & Hero Animation Synchronization
+  // Preloader & Hero Entrance Synchronization
   const preloader = document.getElementById('preloader');
   let heroAnimationTriggered = false;
+
+  const heroElements = [
+    { selector: '.line1', anim: 'animate__fadeInDown', delay: '0.1s' },
+    { selector: '.left-copy', anim: 'animate__fadeInLeft', delay: '0.2s' },
+    { selector: '.portrait-stage', anim: 'animate__fadeInUp', delay: '0.25s' },
+    { selector: '.rating', anim: 'animate__fadeInRight', delay: '0.35s' },
+    { selector: '.sunburst', anim: 'animate__zoomIn', delay: '0.4s' },
+    { selector: '.sparkle-2', anim: 'animate__zoomIn', delay: '0.45s' }
+  ];
+
+  // Set initial hidden state on hero elements so they don't flash before animating
+  heroElements.forEach(({ selector }) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.classList.add('will-animate');
+    });
+  });
 
   const triggerHeroAnimations = () => {
     if (heroAnimationTriggered) return;
     heroAnimationTriggered = true;
 
-    const heroElements = [
-      { selector: '.line1', anim: 'animate__fadeInDown', delay: '0.05s' },
-      { selector: '.sunburst', anim: 'animate__zoomIn', delay: '0.2s' },
-      { selector: '.sparkle-2', anim: 'animate__zoomIn', delay: '0.3s' },
-      { selector: '.left-copy', anim: 'animate__fadeInLeft', delay: '0.12s' },
-      { selector: '.portrait-stage', anim: 'animate__fadeInUp', delay: '0.18s' },
-      { selector: '.rating', anim: 'animate__fadeInRight', delay: '0.22s' }
-    ];
-
     heroElements.forEach(({ selector, anim, delay }) => {
       const els = document.querySelectorAll(selector);
       els.forEach((el) => {
+        el.classList.remove('will-animate');
         el.style.animationDelay = delay;
         el.classList.add('animate__animated', anim);
       });
@@ -26,20 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (preloader) {
+    const startTime = Date.now();
+    const minPreloaderDisplayTime = 600; // Minimal display agar animasi preloader terlihat anggun
+
     const dismissPreloader = () => {
-      preloader.classList.add('loaded');
-      // Fire hero animation right as the preloader curtain fades away
-      setTimeout(triggerHeroAnimations, 100);
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, minPreloaderDisplayTime - elapsed);
+
       setTimeout(() => {
-        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-      }, 550);
+        preloader.classList.add('loaded');
+        // Trigger animasi hero pas tirai preloader mulai membuka
+        setTimeout(triggerHeroAnimations, 200);
+        setTimeout(() => {
+          if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 600);
+      }, remaining);
     };
 
     if (document.readyState === 'complete') {
-      setTimeout(dismissPreloader, 300);
+      dismissPreloader();
     } else {
-      window.addEventListener('load', () => setTimeout(dismissPreloader, 300));
-      setTimeout(dismissPreloader, 1800);
+      window.addEventListener('load', dismissPreloader);
+      setTimeout(dismissPreloader, 1500); // Fallback timeout
     }
   } else {
     triggerHeroAnimations();
