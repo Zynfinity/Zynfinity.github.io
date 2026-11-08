@@ -108,6 +108,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Interactive Text Color Circle Reveal on Hover "PORTOFOLIO" (Desktop Only)
+  const heroCard = document.querySelector('.hero-card');
+  const titleContainer = document.getElementById('heroTitleContainer');
+  const invertLayer = document.getElementById('heroInvertLayer');
+
+  const isDesktopHover = () => 
+    window.innerWidth > 1024 && 
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (heroCard && titleContainer && invertLayer) {
+    let currentX = 0, currentY = 0, targetX = 0, targetY = 0;
+    let radius = 0, targetRadius = 0;
+    let animId = null;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.22;
+      currentY += (targetY - currentY) * 0.22;
+      radius += (targetRadius - radius) * 0.2;
+
+      invertLayer.style.clipPath = `circle(${radius.toFixed(1)}px at ${currentX.toFixed(1)}px ${currentY.toFixed(1)}px)`;
+
+      if (radius > 0.5 || targetRadius > 0) {
+        animId = requestAnimationFrame(render);
+      } else {
+        invertLayer.style.clipPath = 'circle(0px at 50% 50%)';
+        animId = null;
+      }
+    };
+
+    const handlePointerMove = (e) => {
+      if (!isDesktopHover()) return;
+
+      const rect = titleContainer.getBoundingClientRect();
+      const paddingX = 35;
+      const paddingY = 30;
+
+      // Mouse is anywhere within the entire PORTOFOLIO text banner (left, middle, right)
+      const isOver = (
+        e.clientX >= rect.left - paddingX &&
+        e.clientX <= rect.right + paddingX &&
+        e.clientY >= rect.top - paddingY &&
+        e.clientY <= rect.bottom + paddingY
+      );
+
+      if (isOver) {
+        targetX = e.clientX - rect.left;
+        targetY = e.clientY - rect.top;
+        if (radius === 0) {
+          currentX = targetX;
+          currentY = targetY;
+        }
+        targetRadius = Math.min(window.innerWidth * 0.14, 135);
+      } else {
+        targetRadius = 0;
+      }
+
+      if (!animId) animId = requestAnimationFrame(render);
+    };
+
+    heroCard.addEventListener('mousemove', handlePointerMove, { passive: true });
+
+    heroCard.addEventListener('mouseleave', () => {
+      targetRadius = 0;
+      if (!animId) animId = requestAnimationFrame(render);
+    });
+
+    window.addEventListener('resize', () => {
+      if (!isDesktopHover()) {
+        targetRadius = 0;
+        radius = 0;
+        invertLayer.style.clipPath = 'circle(0px at 50% 50%)';
+        if (animId) {
+          cancelAnimationFrame(animId);
+          animId = null;
+        }
+      }
+    }, { passive: true });
+  }
+
   // Optimized Navbar & Scroll-to-Top Handling (Zero Layout Reflow)
   const navbar = document.getElementById('navbar');
   const heroSection = document.getElementById('beranda');

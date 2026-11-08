@@ -544,8 +544,12 @@ body {
   pointer-events: none;
   user-select: none;
 }
+.hero-title-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 999px;
+}
 .line1 {
-  color: #111111;
   font-family: "Bebas Neue", sans-serif;
   font-size: clamp(140px, 23vw, 300px);
   font-weight: 700;
@@ -554,9 +558,37 @@ body {
   text-align: center;
   white-space: nowrap;
   margin: 0;
-  padding: 0;
+  padding: 8px 16px;
   display: inline-block;
   will-change: transform, opacity;
+}
+.line1-dark {
+  color: #111111;
+}
+.hero-invert-layer {
+  display: none;
+  position: absolute;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  pointer-events: none;
+  clip-path: circle(0px at 50% 50%);
+  z-index: 2;
+  will-change: clip-path;
+}
+.line1-light {
+  color: #8BE23C;
+}
+
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .hero-title-container {
+    pointer-events: auto;
+    cursor: crosshair;
+  }
+  .hero-invert-layer {
+    display: flex;
+  }
 }
 .line1 .char {
   display: inline-block;
