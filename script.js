@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     heroAnimationTriggered = true;
 
     if (window.gsap) {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({
+        onComplete: () => {
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        }
+      });
 
       if (preloader) {
         tl.to(preloader, {
@@ -18,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ease: 'power2.inOut',
           onComplete: () => {
             if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+            if (window.ScrollTrigger) ScrollTrigger.refresh();
           }
         });
       }
@@ -103,42 +108,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Navbar appearance adapts when scrolling past hero
+  // Optimized Navbar & Scroll-to-Top Handling (Zero Layout Reflow)
   const navbar = document.getElementById('navbar');
   const heroSection = document.getElementById('beranda');
-
-  function handleNavbarScroll() {
-    if (!navbar || !heroSection) return;
-    const heroRect = heroSection.getBoundingClientRect();
-    const navHeight = navbar.offsetHeight;
-
-    if (heroRect.bottom > navHeight + 20) {
-      navbar.classList.add('in-hero');
-      navbar.classList.remove('scrolled-dark');
-    } else {
-      navbar.classList.remove('in-hero');
-      navbar.classList.add('scrolled-dark');
-    }
-  }
-
-  window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-  window.addEventListener('resize', handleNavbarScroll, { passive: true });
-  handleNavbarScroll();
-
-  // Scroll to Top Button with Smooth Eased Glide
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  let heroHeight = heroSection ? heroSection.offsetHeight : 700;
+  let scrollTicking = false;
+
+  window.addEventListener('resize', () => {
+    if (heroSection) heroHeight = heroSection.offsetHeight;
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }, { passive: true });
+
+  const onScroll = () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+
+        // Navbar appearance adapts without querying DOM geometry on scroll
+        if (navbar) {
+          if (scrollY < heroHeight - 80) {
+            navbar.classList.add('in-hero');
+            navbar.classList.remove('scrolled-dark');
+          } else {
+            navbar.classList.remove('in-hero');
+            navbar.classList.add('scrolled-dark');
+          }
+        }
+
+        // Scroll to top button visibility
+        if (scrollToTopBtn) {
+          if (scrollY > 450) {
+            scrollToTopBtn.classList.add('visible');
+          } else {
+            scrollToTopBtn.classList.remove('visible');
+          }
+        }
+
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   if (scrollToTopBtn) {
-    const handleScrollBtn = () => {
-      if (window.scrollY > 450) {
-        scrollToTopBtn.classList.add('visible');
-      } else {
-        scrollToTopBtn.classList.remove('visible');
-      }
-    };
-
-    window.addEventListener('scroll', handleScrollBtn, { passive: true });
-    handleScrollBtn();
-
     scrollToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({
@@ -149,11 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // Animate.css + Native IntersectionObserver (Ultra-Lightweight)
+  // GSAP ScrollTrigger (Hardware-Accelerated Silky Scroll Reveal)
   // ========================================================
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Scroll Reveal Animations with Native IntersectionObserver
-  if ('IntersectionObserver' in window) {
     const scrollRevealSingles = [
       '#tentang .about-top',
       '#tentang .about-photo-wrapper',
@@ -169,45 +186,76 @@ document.addEventListener('DOMContentLoaded', () => {
       '.footer .footer-block'
     ];
 
+    scrollRevealSingles.forEach((selector) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        gsap.fromTo(el,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+              once: true,
+              fastScrollEnd: true
+            }
+          }
+        );
+      });
+    });
+
     const scrollRevealGroups = [
       { parent: '#pendidikan .timeline', items: '.block-s1, .block-smk' },
       { parent: '#sertifikasi .cert-groups', items: '.org-ketua-himpunan, .org-volunteer-lead, .org-mentor-ui-ux' },
       { parent: '#proyek .work-grid', items: '.card-skylearn, .card-lintas-pay, .card-ruang-baca' }
     ];
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          target.classList.remove('will-animate');
-          target.classList.add('animate__animated', 'animate__fadeInUp');
-          obs.unobserve(target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -30px 0px'
-    });
-
-    // Observe single blocks
-    scrollRevealSingles.forEach((selector) => {
-      document.querySelectorAll(selector).forEach((el) => {
-        el.classList.add('will-animate');
-        observer.observe(el);
-      });
-    });
-
-    // Observe group items with cascading stagger delays
     scrollRevealGroups.forEach(({ parent, items }) => {
       const container = document.querySelector(parent);
       if (container) {
         const els = container.querySelectorAll(items);
-        els.forEach((el, index) => {
-          el.classList.add('will-animate');
-          el.style.animationDelay = `${(index * 0.14).toFixed(2)}s`;
-          observer.observe(el);
-        });
+        gsap.fromTo(els,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+              once: true,
+              fastScrollEnd: true
+            }
+          }
+        );
       }
+    });
+
+    // Pre-calculate and cache all trigger positions immediately so the first scroll is instant
+    ScrollTrigger.refresh();
+    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+  } else if ('IntersectionObserver' in window) {
+    // Fallback if GSAP is unavailable
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('#tentang .about-top, #tentang .about-photo-wrapper, #tentang .about-copy, #pendidikan .header, #pengalaman .header, #pengalaman .exp-card, #keahlian .skills-card, #sertifikasi .header-3, #proyek .work-header, #kontak .contact-card, .footer .footer-block, .block-s1, .block-smk, .card-skylearn, .card-lintas-pay, .card-ruang-baca').forEach((el) => {
+      observer.observe(el);
     });
   }
 });
