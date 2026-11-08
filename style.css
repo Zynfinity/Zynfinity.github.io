@@ -2201,6 +2201,14 @@ body {
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   box-sizing: border-box;
 }
+.channel-card-full {
+  grid-column: span 2;
+}
+@media (max-width: 600px) {
+  .channel-card-full {
+    grid-column: auto;
+  }
+}
 .channel-card:hover {
   transform: translateY(-2px);
   border-color: #8BE23C;
