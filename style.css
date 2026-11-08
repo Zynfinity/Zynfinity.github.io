@@ -1217,7 +1217,7 @@ body {
 .image {
   width: 100%;
   height: 100%;
-  background: url(assets/images/foto-s1.png) center / contain no-repeat;
+  background: url(assets/images/foto-s1.webp) center / contain no-repeat;
 }
 .body-3 {
   flex: 1 1 auto;
@@ -1441,7 +1441,7 @@ body {
 .image-2 {
   width: 100%;
   height: 100%;
-  background: url(assets/images/foto-smk.png) center / contain no-repeat;
+  background: url(assets/images/foto-smk.webp) center / contain no-repeat;
 }
 .body-smk {
   flex: 1 1 auto;
@@ -1517,7 +1517,7 @@ body {
   max-width: 140px;
   height: 140px;
   border-radius: 18px;
-  background: url(assets/images/foto-bangkit.png) center / cover no-repeat;
+  background: url(assets/images/foto-bangkit.svg) center / cover no-repeat;
   border: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
   overflow: hidden;
