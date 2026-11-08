@@ -1,61 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Preloader & Hero Entrance Synchronization
+  // Preloader & Hero Entrance (Powered by GSAP for Silky Smooth 60fps Motion)
   const preloader = document.getElementById('preloader');
+  const preloaderBar = document.querySelector('.preloader-bar');
   let heroAnimationTriggered = false;
-
-  const heroElements = [
-    { selector: '.line1', anim: 'animate__fadeInDown', delay: '0.1s' },
-    { selector: '.left-copy', anim: 'animate__fadeInLeft', delay: '0.2s' },
-    { selector: '.portrait-stage', anim: 'animate__fadeInUp', delay: '0.25s' },
-    { selector: '.rating', anim: 'animate__fadeInRight', delay: '0.35s' },
-    { selector: '.sunburst', anim: 'animate__zoomIn', delay: '0.4s' },
-    { selector: '.sparkle-2', anim: 'animate__zoomIn', delay: '0.45s' }
-  ];
-
-  // Set initial hidden state on hero elements so they don't flash before animating
-  heroElements.forEach(({ selector }) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.classList.add('will-animate');
-    });
-  });
 
   const triggerHeroAnimations = () => {
     if (heroAnimationTriggered) return;
     heroAnimationTriggered = true;
 
-    heroElements.forEach(({ selector, anim, delay }) => {
-      const els = document.querySelectorAll(selector);
-      els.forEach((el) => {
-        el.classList.remove('will-animate');
-        el.style.animationDelay = delay;
-        el.classList.add('animate__animated', anim);
-      });
-    });
-  };
+    if (window.gsap) {
+      const tl = gsap.timeline();
 
-  if (preloader) {
-    const startTime = Date.now();
-    const minPreloaderDisplayTime = 600; // Minimal display agar animasi preloader terlihat anggun
+      if (preloader) {
+        tl.to(preloader, {
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+          }
+        });
+      }
 
-    const dismissPreloader = () => {
-      const elapsed = Date.now() - startTime;
-      const remaining = Math.max(0, minPreloaderDisplayTime - elapsed);
-
-      setTimeout(() => {
+      tl.fromTo('.line1', 
+        { y: -20, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 
+        preloader ? '-=0.4' : 0
+      )
+      .fromTo('.left-copy', 
+        { x: -22, opacity: 0 }, 
+        { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 
+        '-=0.85'
+      )
+      .fromTo('.portrait-stage', 
+        { y: 22, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' }, 
+        '-=0.88'
+      )
+      .fromTo('.rating', 
+        { x: 22, opacity: 0 }, 
+        { x: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 
+        '-=0.88'
+      )
+      .fromTo(['.sunburst', '.sparkle-2'], 
+        { scale: 0.3, opacity: 0 }, 
+        { scale: 1, opacity: 1, duration: 0.85, ease: 'back.out(1.4)', stagger: 0.1 }, 
+        '-=0.75'
+      );
+    } else {
+      if (preloader) {
         preloader.classList.add('loaded');
-        // Trigger animasi hero pas tirai preloader mulai membuka
-        setTimeout(triggerHeroAnimations, 200);
         setTimeout(() => {
           if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
         }, 600);
-      }, remaining);
-    };
+      }
+    }
+  };
 
-    if (document.readyState === 'complete') {
-      dismissPreloader();
+  if (preloader) {
+    if (window.gsap && preloaderBar) {
+      preloaderBar.style.animation = 'none'; // Ganti looping CSS kasar dengan interpolasi halus GSAP
+      gsap.fromTo(preloaderBar, 
+        { scaleX: 0, transformOrigin: 'left center' }, 
+        { scaleX: 1, duration: 0.65, ease: 'power2.inOut', onComplete: triggerHeroAnimations }
+      );
     } else {
-      window.addEventListener('load', dismissPreloader);
-      setTimeout(dismissPreloader, 1500); // Fallback timeout
+      setTimeout(triggerHeroAnimations, 600);
     }
   } else {
     triggerHeroAnimations();

@@ -63,17 +63,17 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #090909;
+  background: #08090A;
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
 }
 .preloader.loaded {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.6s ease;
 }
 .preloader-content {
   display: flex;
@@ -154,14 +154,14 @@ body {
    Animate.css Customizations & Hardware Acceleration
    ======================================================== */
 :root {
-  --animate-duration: 0.85s;
-  --animate-delay: 0.15s;
+  --animate-duration: 0.95s;
+  --animate-delay: 0.1s;
 }
 
 .animate__animated {
   -webkit-animation-fill-mode: both !important;
   animation-fill-mode: both !important;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
   will-change: transform, opacity;
 }
 
@@ -173,7 +173,7 @@ body {
 @keyframes fadeInUpCustom {
   from {
     opacity: 0;
-    transform: translate3d(0, 48px, 0);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
@@ -184,7 +184,7 @@ body {
 @keyframes fadeInDownCustom {
   from {
     opacity: 0;
-    transform: translate3d(0, -42px, 0);
+    transform: translate3d(0, -18px, 0);
   }
   to {
     opacity: 1;
@@ -195,7 +195,7 @@ body {
 @keyframes fadeInLeftCustom {
   from {
     opacity: 0;
-    transform: translate3d(-45px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
   }
   to {
     opacity: 1;
@@ -206,7 +206,7 @@ body {
 @keyframes fadeInRightCustom {
   from {
     opacity: 0;
-    transform: translate3d(45px, 0, 0);
+    transform: translate3d(20px, 0, 0);
   }
   to {
     opacity: 1;
