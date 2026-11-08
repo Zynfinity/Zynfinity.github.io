@@ -41,6 +41,7 @@ html {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 #beranda, #tentang, #pendidikan, #pengalaman, #keahlian, #sertifikasi, #proyek, #kontak {
@@ -53,7 +54,6 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #08090A;
-  overflow-x: hidden;
   font-family: "Inter", sans-serif;
 }
 
@@ -147,7 +147,6 @@ body {
   justify-content: flex-start;
   align-items: center;
   background-color: #08090A;
-  overflow-x: hidden;
 }
 
 /* ========================================================
